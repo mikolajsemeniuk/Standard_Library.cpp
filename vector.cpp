@@ -83,7 +83,6 @@ void init (vector<T> &v)
     auto random = random_choice(v); // capture random_choice
     std::cout << "random value: " << random << std::endl; // cout random_choice
     
-    
     auto p = remove_if(v.begin(), v.end(),  [](const int i) { return i < 0; });
     v.erase(p, v.end()); // remove negative values
     
