@@ -85,10 +85,10 @@ void init (vector<T> &v)
     
     
     auto p = remove_if(v.begin(), v.end(),  [](const int i) { return i < 0; });
-    v.erase(p, v.end()); // remove positive values
+    v.erase(p, v.end()); // remove negative values
     
     auto q = remove_if(v.begin(), v.end(),  [](const int i) { return i > 0; });
-    v.erase(q, v.end()); // remove negative values
+    v.erase(q, v.end()); // remove positive values
     
     display(v); // display a vector
     
