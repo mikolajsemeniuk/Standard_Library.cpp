@@ -25,16 +25,20 @@ void display (std::vector<int> const &v)
 template <typename T>
 void shuffle_vector(std::vector<T>* v)
 {
+    if ((*v).size() < 1)
+        return;
     std::random_device rd;
     std::mt19937 g(rd());
     std::shuffle((*v).begin(), (*v).end(), g);
 }
 
 template <typename T>
-T random_choice (const std::vector<T> &list)
+T random_choice (const std::vector<T> &v)
 {
-    int random = std::rand() % list.size();
-    return list.at(random);
+    if (v.size() < 1)
+        return -1;
+    int random = std::rand() % v.size();
+    return v.at(random);
 }
 
 template <class T>
@@ -79,7 +83,14 @@ void init (vector<T> &v)
     auto random = random_choice(v); // capture random_choice
     std::cout << "random value: " << random << std::endl; // cout random_choice
     
-    display(v); // display a list
+    
+    auto p = remove_if(v.begin(), v.end(),  [](const int i) { return i < 0; });
+    v.erase(p, v.end()); // remove positive values
+    
+    auto q = remove_if(v.begin(), v.end(),  [](const int i) { return i > 0; });
+    v.erase(q, v.end()); // remove negative values
+    
+    display(v); // display a vector
     
     v.clear(); // empty a vector
     
@@ -88,7 +99,7 @@ void init (vector<T> &v)
 
 int main ()
 {
-    srand( static_cast<unsigned int>(time(nullptr))); // needed for init std::rand()
+    srand( static_cast<unsigned int>(time(nullptr)) ); // needed for init std::rand()
     vector<int> v = { 2, 2, 3, 3, 4, 4, 4, 15, 25, 45, 55, 17, 28 };
     init(v);
     
