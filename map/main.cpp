@@ -44,6 +44,8 @@ void init (std::map<P, Q> &m)
     // Get node
     auto key = m.find("three")->first; // key
     auto val = m.find("three")->second; // value
+    auto upper_node = m.upper_bound("one") // next present node after node "one"
+    auto upper_node = m.lower_bound("one") // previous present node before node "one"
     cout << "key: " << key << ", val: " << val << endl << endl;
     
     // Assing nodes
@@ -59,9 +61,15 @@ void init (std::map<P, Q> &m)
     // Remove nodes
     m.erase("five"); // remove elements which key is equal "five
     m.erase(m.begin(), m.end()); // remove all elements
+    map::clear(); // remove all elements
+    
+    // Swap maps
+    swap(m3, m5);
+    m2.swap(m4);
     
     // Size of map
     cout << "size: " << m.size() << endl;
+    cout << "max_size: " << m.max_size() << endl;
     
     // catch certain values in vector
     vector<int> values_lower_than_4;
