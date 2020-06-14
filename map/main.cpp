@@ -23,8 +23,9 @@ template <class P, class Q>
 void init (std::map<P, Q> &m)
 {
     // Add node
-    m["five"] = 5; // add node if "five" doesn't exist
+    m["five"] = 5; // add node if "five" doesn't exist or change value of "five" if exists
     m.insert(pair<string, int>("fourth", 4)); // insert nothing if "fourth" doesn't exist
+    m.insert({ "sixth", 6 }); // insert nothing if "sixth" doesn't exist
     
     // Edit node
     auto node = m.extract("two"); // key
