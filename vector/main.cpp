@@ -49,7 +49,6 @@ void init (vector<T> &v)
     
     v.at(2) = 177; // edit element at position 2
     auto my_val = v.at(2); // get the value at position 2
-    cout << "catched value: " << my_val << endl;
     
     v.pop_back(); // remove the last element
     v.erase(v.begin()); // remove the first element
