@@ -7,36 +7,75 @@
 
 
 #include <iostream>
-#include <map>
+#include <map> // needed for std::map
+#include <vector> // needed for store values in vector
 
 using namespace std;
 
-template <class T>
-void display (std::map<T, T> &m)
+template <class P, class Q>
+void display (std::map<P, Q> &m)
 {
-    for (auto& i : m)
+    for (auto &i : m)
         cout << i.first << " " << i.second << endl;
 }
 
-template <class T>
-void init (std::map<T, T> &m)
+template <class P, class Q>
+void init (std::map<P, Q> &m)
 {
-    m.insert(pair<int, int>(5, 100)); // insert into map
+    // Add node
+    m["five"] = 5; // add node if "five" doesn't exist
+    m.insert(pair<string, int>("fourth", 4)); // insert nothing if "fourth" doesn't exist
     
-    m.count(2) // returns 1 if key already exists and false if key doesn't exist
+    // Edit node
+    auto node = m.extract("two"); // key
+    if (!node.empty())
+    {
+        node.key() = "two_two"; // crash if node is empty
+        m.insert(std::move(node));
+    }
+    if (m.count("two_two")) // val
+    {
+        m.at("two_two") = 25; // crash without if above
+    }
+    m["two_two"] = 22; // create node if doesn't exist
+    m.find("two_two")->second = 22; // won't create node if doesn't exist
     
-    map<int, int> m2(m.begin(), m.end()); // assing elements of m to newly declared map m2
     
-    m.erase(m.begin(), m.find(3)); // remove all elements lower than 3
-    m.erase(3); // remove elements which key is equal 3
+    // Get node
+    auto key = m.find("three")->first; // key
+    auto val = m.find("three")->second; // value
+    cout << "key: " << key << ", val: " << val << endl << endl;
+    
+    // Assing nodes
+    auto index = distance(m.begin(), m.find("one")); // get the index of value "one"
+    map<string, int> m1(std::next(m.begin(), index), std::next(m.begin(), index + 1)); // assing one node "one"
+    map<string, int> m2(std::next(m.begin(), index), std::next(m.begin(), index + 3)); // assing three nodes includes "three" and 2 next nodes, !!! Won't work if index out of range
+    map<string, int> m3(std::prev(m.end(), index + 3), std::prev(m.end(), index)); // assing three nodes includes "three" and 2 previous nodes, !!! Won't work if index out of range
+    map<string, int> m5(m.begin(), m.find("three")); // assing elements not includes and before "three"
+    map<string, int> m6(m.find("three"), m.end()); // assing elements includes and after "three"
+    map<string, int> m7(m.find("fourth"), m.find("two_two")); // assing elements includes and after "fourth" and not includes and before "two_two"
+    map<string, int> m4(m.begin(), m.end()); // assing all nodes
+    
+    // Remove nodes
+    m.erase("five"); // remove elements which key is equal "five
     m.erase(m.begin(), m.end()); // remove all elements
+    
+    // Size of map
+    cout << "size: " << m.size() << endl;
+    
+    // catch certain values in vector
+    vector<int> values_lower_than_4;
+    for (auto &i : m)
+    {
+        if (i.second < 4)
+            values_lower_than_4.push_back(i.second);
+    }
 }
 
 int main ()
 {
-    map<int, int> m = { { 1, 20 }, { 2, 40 }, { 3, 60 }, { 4, 80 } };
+    map<string, int> m { {"one", 1}, {"two", 2}, {"three", 3} };
     init(m);
-    cout << "\nm: " << endl;
     display(m);
     return 0;
 }
