@@ -39,5 +39,5 @@ http://www.cplusplus.com/reference/unordered_set/unordered_set/
 http://www.cplusplus.com/reference/vector/vector/
 
 # 
-for more info pls visit  
+For more info about standard template library please visit:  
 ***Wikipedia:*** https://en.wikipedia.org/wiki/C%2B%2B_Standard_Library
