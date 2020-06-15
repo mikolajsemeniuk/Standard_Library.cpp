@@ -43,6 +43,8 @@ T random_choice (const std::vector<T> &v)
 template <class T>
 void init (vector<T> &v)
 {
+    vector<int> vec(10, 0); // initialize with only 0
+    
     v.push_back(1); // add at to the end of the list
     v.insert(v.begin(), 7); // add at to the beginning of the list
     v.insert(v.begin() + 2, 74); // add to 2 position
