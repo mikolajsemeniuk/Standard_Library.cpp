@@ -9,7 +9,7 @@
 #include <iostream>
 #include <vector> // needed for using std::vector
 #include <set> // needed for using std::set
-#include <numeric> // needed for using std::iota
+#include <numeric> // needed for using std::iota, std::accumulate
 #include <algorithm> // needed for std::iter_swap
 #include <random> // std::rand, std::random_device, std::mt19937, std::shuffle
 
@@ -77,6 +77,9 @@ void init (vector<T> &v)
     
     auto max_value = *std::max_element(v.begin(), v.end()); // capture max value
     std::cout << "max value: " << max_value << std::endl; // cout max value
+    
+    auto sum_of_elems = std::accumulate(v.begin(), v.end(), 0); // sum of elements
+    cout << "sum_of_elems: " << sum_of_elems << endl;
     
     auto random = random_choice(v); // capture random_choice
     std::cout << "random value: " << random << std::endl; // cout random_choice
