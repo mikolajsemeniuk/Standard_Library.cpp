@@ -23,23 +23,19 @@ void init (set<T> &s)
 {
     // Add to set
     s.insert(6);
-    
     auto r = s.emplace(13); // r.second return True if insert element was succesful
-    auto q = s.emplace_hint (s.end(), 11); // returns iterator to newly inserted element
+    cout << "r.second: " << r.second << endl;
     
     // Get value
-    auto p = s.find(6); // get value by value
+    auto f = s.find(6); // get element by value
     auto itlow = s.lower_bound (3); // returns all node before and not includes 3
     auto itup = s.upper_bound (5); // returns all node after and includes 5
     
-    
     // Assign set
     set<int> n (s.begin(), s.end());
-    
-    // Remove from set
-    s.erase(3);
-    n.clear();
-    
+    set<int> q (itlow, itup);
+    set<int> l (f, s.end());
+        
     // Properties
     cout << "count: " << s.count(6) << endl;
     cout << "empty: " << s.empty() << endl;
@@ -49,6 +45,10 @@ void init (set<T> &s)
     // Swap values
     swap(s, n);
     s.swap(n);
+
+    // Remove from set
+    s.erase(3);
+    n.clear();
 }
 
 int main ()
@@ -60,4 +60,3 @@ int main ()
     display(s);
     return 0;
 }
-
