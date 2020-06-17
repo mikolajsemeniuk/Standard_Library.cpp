@@ -10,7 +10,7 @@
 #include <vector> // needed for using std::vector
 #include <set> // needed for using std::set
 #include <numeric> // needed for using std::iota, std::accumulate
-#include <algorithm> // needed for std::iter_swap
+#include <algorithm> // needed for std::iter_swap, std::min_value, std::max_value
 #include <random> // std::rand, std::random_device, std::mt19937, std::shuffle
 
 using namespace std;
