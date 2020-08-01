@@ -3,12 +3,12 @@
 using namespace std;
 
 template <typename T1, typename T2 = char>
-void print (vector<T1> v, char order = 'n', T2 n = 50)
+void print (vector<T1> v, string order = "default", T2 n = 10)
 {
     if (n == 'm')
         n = (int)(v.size()); // only to mute compiler
     
-    if (order != 'a' && order != 'd')
+    if (order != "asc" && order != "desc")
     {
         for (unsigned long i = 0; i < v.size() && i < n; i++)
             cout << v[i] << " ";
@@ -16,7 +16,7 @@ void print (vector<T1> v, char order = 'n', T2 n = 50)
     else
     {
         std::sort(v.begin(), v.end());
-        if (order == 'a')
+        if (order == "asc")
         {
             for (unsigned long i = 0; i < v.size() && i < n; i++)
                 cout << v[i] << " ";
@@ -27,7 +27,6 @@ void print (vector<T1> v, char order = 'n', T2 n = 50)
             for (unsigned long i = 0; i < v.size() && i < n; i++)
                 cout << v[i] << " ";
         }
-
     }
     cout << endl;
 }
