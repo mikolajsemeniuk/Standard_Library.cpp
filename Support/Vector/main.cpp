@@ -2,42 +2,6 @@
 
 using namespace std;
 
-template <typename T1, typename T2 = char>
-void print (vector<T1> v, T2 n = 50, char order = 'n')
-{
-    if (n == 'm')
-        n = (int)(v.size()); // only to mute compiler
-    
-    if (order != 'a' || order != 'd')
-    {
-//        for (unsigned long i = 0; i < n; i++)
-//            cout << v[i] << endl;
-        for (const auto &i : v) 
-            cout << i << " ";
-    }
-    else
-    {
-        std::sort(v.begin(), v.end());
-        if (order == 'a')
-        {
-//            for (unsigned long i = 0; i < n; i++)
-//                cout << v[i] << endl;
-            for (const auto &i : v)
-                cout << i << " ";
-        }
-        else
-        {
-            std::reverse(v.begin(), v.end());
-//            for (unsigned long i = 0; i < n; i++)
-//                cout << v[i] << endl;
-            for (const auto &i : v)
-                cout << i << " ";
-        }
-
-    }
-    cout << endl;
-}
-
 template <typename T1, typename T2, typename T3 = char>
 void push (vector<T1> &v, T2 val, T3 pos = 'd')
 {
