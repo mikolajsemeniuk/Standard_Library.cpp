@@ -3,10 +3,10 @@
 
 using namespace std;
 
-template <typename T1, typename T2, typename T3 = string>
-void push (vector<T1> &v, T2 val, T3 pos = "default")
+template <typename T1, typename T2, typename T3 = char>
+void push (vector<T1> &v, T2 val, T3 pos = 'd')
 {
-    if (pos == "default")
+    if (pos == 'd')
         v.push_back(val);
     else
     {
@@ -16,10 +16,10 @@ void push (vector<T1> &v, T2 val, T3 pos = "default")
     }
 }
 
-template <typename T1, typename T2 = string>
-T1 pop (vector<T1> &v, T2 pos = "default")
+template <typename T1, typename T2 = char>
+T1 pop (vector<T1> &v, T2 pos = 'd')
 {
-    if (pos == "default")
+    if (pos == 'd')
     {
         T1 value = v.at(v.size() - 1);
         v.pop_back();
