@@ -33,10 +33,8 @@ int main(int argc, const char * argv[]) {
     
     // Call push and pop
     vector<int> p = { 1, 2, 3, 4 };
-    vector<string> t = { "hej", "tam", "witam", "elo" };
-    cout << "wartosc to: " << pop(t, -1) << endl;
+    vector<string> t = { "hey", "there", "hi", "bye" };
+    cout << "value removed: " << pop(t, -1) << endl;
     push(p, 7, 2);
-    print(p, 'm');
-    
     
 }
