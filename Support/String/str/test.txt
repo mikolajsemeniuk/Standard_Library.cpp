@@ -1,0 +1,35 @@
+#include <iostream>
+#include "lib/main.hpp"
+
+int main (int argc, const char * argv[])
+{
+    string a1 = "dsads";
+    vector<string> a2 = { "dsads", "dsads", "dsads" };
+    
+    int b1 = 14;
+    vector<int> b2 = { 1, 2, 3, 4 };
+    
+    long c1 = 14;
+    vector<long> c2 = { 1, 2, 3, 4 };
+    
+    float d1 = 16.2;
+    vector<float> d2 = { 1.1, 2.1, 3.1, 4.5 };
+    
+    double e1 = 16.2;
+    vector<double> e2 = { 1.1, 2.1, 3.1, 4.5 };
+    
+    cout << "a1: " << str(a1) << "\n";
+    cout << "a2: " << str(a2) << "\n";
+    
+    cout << "b1: " << str(b1) << "\n";
+    cout << "b2: " << str(b2) << "\n";
+    
+    cout << "c1: " << str(c1) << "\n";
+    cout << "c2: " << str(c2) << "\n";
+    
+    cout << "d1: " << str(d1) << "\n";
+    cout << "d2: " << str(d2) << "\n";
+    
+    cout << "e1: " << str(e1) << "\n";
+    cout << "e2: " << str(e2) << "\n";
+}
